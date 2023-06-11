@@ -1,9 +1,4 @@
 {
  
- "scripts": {
-    "build": "npm run build"
-  }
-  
-  
 }
 
