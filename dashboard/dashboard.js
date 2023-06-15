@@ -81,7 +81,14 @@ document.addEventListener('DOMContentLoaded', async () => {
       row.appendChild(dateEntreeCell);
 
       const dateSortieCell = document.createElement('td');
-      dateSortieCell.textContent = "n'est pas sortie";
+      if(item.Date_d_sortie == "00/00/0000")
+      {
+        dateSortieCell.textContent = "n'est pas sortie";
+      }
+      else {
+        dateSortieCell.textContent = item.Date_d_sortie;
+      }
+      
       row.appendChild(dateSortieCell);
 
       const etatLedCell = document.createElement('td');
@@ -283,7 +290,7 @@ async function findVille(lan, lat) {
   console.log("latitude :", lat);
   console.log("lan :", lan);
 
-  const apiUrl = `https://geocode.xyz/${lat},${lan}?json=1&auth=965827557143594293525x5792`;
+  const apiUrl = `https://geocode.xyz/${lan},${lat}?json=1&auth=965827557143594293525x5792`;
 
   try {
     const response = await fetch(apiUrl);
